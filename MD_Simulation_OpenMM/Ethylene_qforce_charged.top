@@ -1,0 +1,69 @@
+;The force field parameters are based on optimized structure obtained from QChem.
+;The results are in the directory /work/junyiwang/Q-Force/ethylene_charged on Elderberry.
+;The atomic partial charges were defined by CM5, and were scaled by a factor of 1.2.
+
+[ defaults ]
+;You need to read GROMACS Manual Chapter 5.7 to check the setting is what you want.
+; nbfunc   comb-rule   gen-pairs   fudgeLJ   fudgeQQ
+   1        2           yes          0.5       0.5
+   
+[ atomtypes ]
+; Descriptions of CG beads are available in CG_bead_information
+; name  bond_type    mass    charge   ptype      sigma       epsilon
+   CM	     6      12.01100    0.000     A   3.55000e-01  3.17984e-01 ;
+   HC	     1       1.00800    0.000     A   2.50000e-01  1.25520e-01 ;
+   
+   [ moleculetype ]
+; Name            nrexcl
+ETH                 3
+
+[ atoms ]
+  ; Read GROMACS Manual v5.0.2 p142-144
+  ;   nr    type   resnr  residu    atom   cgnr   charge   mass
+       1     CM      1     ETH       CM       1   0.157632  12.01100
+       2     CM      1     ETH       CM       2   0.157632  12.01100
+       3     HC      1     ETH       HC       3   0.221184  1.008000
+       4     HC      1     ETH       HC       4   0.221184  1.008000
+       5     HC      1     ETH       HC       5   0.221184  1.008000
+       6     HC      1     ETH       HC       6   0.221184  1.008000
+
+
+[ bonds ]
+; ai   aj  f   r0       kb
+   1    2  1 0.13951  638974
+   1    3  1 0.10606  387491
+   1    4  1 0.10606  387491
+   2    5  1 0.10606  387491
+   2    6  1 0.10606  387491
+  
+[ angles ]
+;  ai   aj   ak   f        th0          kth
+   1    2    5   5    120.686      346.030   0.21404    11980.788
+   1    2    6   5    120.686      346.030   0.21404    11980.788   
+   2    1    3   5    120.686      346.030   0.21404    11980.788
+   2    1    4   5    120.686      346.030   0.21404    11980.788
+   3    1    4   5    118.628      175.519   0.18242    13075.488
+   5    2    6   5    118.628      175.519   0.18242    13075.488
+   
+
+ [ dihedrals ]
+;  ai    aj    ak    al     f        th0          kth
+    3     1     2     5     2    180.000      131.204
+    3     1     2     6     2      0.000      106.336
+    4     1     2     5     2      0.000      106.336
+    4     1     2     6     2    180.000      131.204
+
+
+[ pairs ]
+;   ai    aj  func 
+     4     5     1
+     4     6     1
+     3     5     1
+     3     6     1
+   
+[ system ]
+Ethylene
+
+[ molecules ]
+;ETH  1706
+ETH  5

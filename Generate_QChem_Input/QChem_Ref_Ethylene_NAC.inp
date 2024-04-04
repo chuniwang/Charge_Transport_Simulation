@@ -1,0 +1,15 @@
+$rem
+  jobtype freq
+  method = camb3lyp
+  basis = 6-31G*
+  scf_print_frgm = true
+  sym_ignore = true
+  scf_guess = fragmo
+  sts_dc = fock
+  sts_trans_donor = 2-3
+  sts_trans_acceptor = 2-3
+$end
+
+$rem_frgm
+  print_orbitals = 5
+$end    
